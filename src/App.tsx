@@ -5,7 +5,6 @@ import { useMemo, useState } from 'react'
 
 import Navbar from './components/Navbar/Navbar'
 import EnergyForm from './components/EnergyForm/EnergyForm'
-import YourComponent from './components/EnergyForm/TestComponent'
 
 function App() {
   const [prefersDarkMode, setDarkMode] = useState(
@@ -30,7 +29,7 @@ function App() {
           setDarkMode={handleSettingDarkMode}
         />
 
-        <Box sx={{ margin: 2, marginTop: 4 }}>
+        <Box sx={{ margin: 2, marginTop: 4, maxWidth: '720px' }}>
           <EnergyForm />
         </Box>
       </ThemeProvider>
