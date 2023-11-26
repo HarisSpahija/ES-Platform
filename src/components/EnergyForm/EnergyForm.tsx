@@ -1,8 +1,9 @@
-import { Box, Card, FormControl, Typography } from '@mui/material'
-import { useEffect, useState } from 'react'
+import { Box, Card, FormGroup, Typography } from '@mui/material'
+import { useState } from 'react'
 import { DayPicker, DurationPicker, TimePicker } from '../Inputs'
 
 import '../../styles/form.scss'
+import getCurrentHHmm from '../../helpers/getCurrentHHmm'
 
 /*
 three input fields
@@ -13,21 +14,19 @@ three input fields
 */
 
 const EnergyForm = () => {
-  const [formData, setFormData] = useState<any>({
-    day: '',
-    startTime: '',
-  })
+  const [startDay, setStartDay] = useState<number>(new Date().getDay())
+  const [startTime, setStartTime] = useState<string>(getCurrentHHmm())
+  const [durationInMinutes, setDuration] = useState<number>(60)
 
-  const handleChange = (e: any) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
+  const handleDayChange = (e: any) => {
+    setStartDay(e.target.value)
   }
-
-  useEffect(() => {
-    // Calculate the cost of energy usage
-  }, [formData])
+  const handleDurationChange = (e: any) => {
+    setDuration(e.target.value)
+  }
+  const handleStartTimeChange = (e: any) => {
+    setStartTime(e.target.value)
+  }
 
   return (
     <>
@@ -40,25 +39,26 @@ const EnergyForm = () => {
           information about your energy usage.
         </Typography>
       </Box>
-      Debug: {JSON.stringify(formData)}
+      Debug: {startDay} {startTime} {durationInMinutes}
       <Card sx={{ padding: 2 }}>
         <Typography variant='body1' component='p' sx={{ marginBottom: 2 }}>
           Every workday has peak prices between 7:00 and 21:00. Please select a
           day and time so peak hours and considered in the calculation
         </Typography>
-        <FormControl
-          onChange={handleChange}
-          fullWidth
-          className='form__container'
-        >
-          <DayPicker name='day' onChange={handleChange} value={formData.day} />
+        <FormGroup className='form__container'>
+          <DayPicker name='day' onChange={handleDayChange} value={startDay} />
           <TimePicker
             name='startTime'
-            onChange={handleChange}
-            value={formData.startTime}
+            onChange={handleStartTimeChange}
+            value={startTime}
           />
-          <DurationPicker />
-        </FormControl>
+          <DurationPicker
+            name='duration'
+            onChange={handleDurationChange}
+            value={durationInMinutes}
+            handleDurationStep={setDuration}
+          />
+        </FormGroup>
       </Card>
     </>
   )

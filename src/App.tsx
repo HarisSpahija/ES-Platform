@@ -5,6 +5,7 @@ import { useMemo, useState } from 'react'
 
 import Navbar from './components/Navbar/Navbar'
 import EnergyForm from './components/EnergyForm/EnergyForm'
+import YourComponent from './components/EnergyForm/TestComponent'
 
 function App() {
   const [prefersDarkMode, setDarkMode] = useState(
