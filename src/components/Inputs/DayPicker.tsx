@@ -26,10 +26,7 @@ const DayPicker = (props: IDayPickerProps) => {
         </Select>
       </Grid>
       <Grid item>
-        <Tooltip
-          title='Every workday has peak prices between 7:00 and 21:00. 
-        Please select a day and time so peak hours and considered in the calculation'
-        >
+        <Tooltip title='Select a day'>
           <InfoOutlined />
         </Tooltip>
       </Grid>

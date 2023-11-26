@@ -6,4 +6,4 @@ const endTimePeak = 23 // 23:00 PM
 
 const meterInterValInMs = 1000 * 60 * 15 // 1 hour
 
-const daysThatHasPeak = [1, 2, 3, 4, 5] // Monday to Friday
+const daysThatHasPeak = [0, 1, 2, 3, 4] // Monday to Friday

@@ -1,5 +1,8 @@
 import { Box, Card, FormControl, Typography } from '@mui/material'
-import { DayPicker } from '../Inputs'
+import { useEffect, useState } from 'react'
+import { DayPicker, TimePicker } from '../Inputs'
+
+import '../../styles/form.scss'
 
 /*
 three input fields
@@ -10,6 +13,22 @@ three input fields
 */
 
 const EnergyForm = () => {
+  const [formData, setFormData] = useState<any>({
+    day: '',
+    startTime: '',
+  })
+
+  const handleChange = (e: any) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    })
+  }
+
+  useEffect(() => {
+    // Calculate the cost of energy usage
+  }, [formData])
+
   return (
     <>
       <Box sx={{ flexGrow: 1, marginBottom: 2 }}>
@@ -21,9 +40,23 @@ const EnergyForm = () => {
           information about your energy usage.
         </Typography>
       </Box>
+      Debug: {JSON.stringify(formData)}
       <Card sx={{ padding: 2 }}>
-        <FormControl fullWidth sx={{ '& > * + *': { mt: 1 } }}>
-          <DayPicker />
+        <Typography variant='body1' component='p' sx={{ marginBottom: 2 }}>
+          Every workday has peak prices between 7:00 and 21:00. Please select a
+          day and time so peak hours and considered in the calculation
+        </Typography>
+        <FormControl
+          onChange={handleChange}
+          fullWidth
+          className='form__container'
+        >
+          <DayPicker name='day' onChange={handleChange} value={formData.day} />
+          <TimePicker
+            name='startTime'
+            onChange={handleChange}
+            value={formData.startTime}
+          />
         </FormControl>
       </Card>
     </>

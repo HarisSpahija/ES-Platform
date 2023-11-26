@@ -1,3 +1,4 @@
 import DayPicker from './DayPicker'
+import TimePicker from './TimePicker'
 
-export { DayPicker }
+export { DayPicker, TimePicker }
