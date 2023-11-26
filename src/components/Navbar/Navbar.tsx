@@ -42,7 +42,7 @@ const Navbar = (props: INavBarProps) => {
             Energy Supplier B.V.
           </Typography>
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title='Settings aanpassen'>
+            <Tooltip title='Settings Menu'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar
                   alt='User image of Haris Spahija'
