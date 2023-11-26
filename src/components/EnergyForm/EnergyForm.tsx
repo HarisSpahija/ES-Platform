@@ -1,6 +1,6 @@
 import { Box, Card, FormControl, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
-import { DayPicker, TimePicker } from '../Inputs'
+import { DayPicker, DurationPicker, TimePicker } from '../Inputs'
 
 import '../../styles/form.scss'
 
@@ -57,6 +57,7 @@ const EnergyForm = () => {
             onChange={handleChange}
             value={formData.startTime}
           />
+          <DurationPicker />
         </FormControl>
       </Card>
     </>
