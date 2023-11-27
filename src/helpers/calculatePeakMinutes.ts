@@ -7,7 +7,7 @@ const calculateMinutesBetween = (startDate: Date, endDate: Date) => {
 }
 
 const calculatePeakMinutes = (date: Date, durationInMinutes: number) => {
-  let result = {
+  const result = {
     peakMinutes: 0,
     offPeakMinutes: 0,
   }
@@ -52,7 +52,7 @@ const calculatePeakMinutes = (date: Date, durationInMinutes: number) => {
         case 6: // Saturday
           nextPeakStartTime.setDate(dateCursor.getDate() + 2)
           break
-        case 7: // Sunday
+        case 0: // Sunday
           nextPeakStartTime.setDate(dateCursor.getDate() + 1)
           break
         default:
