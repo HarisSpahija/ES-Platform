@@ -14,7 +14,7 @@ import { DayPicker, DurationPicker, TimePicker } from '../Inputs'
 import '../../styles/form.scss'
 import getCurrentHHmm from '../../helpers/getCurrentHHmm'
 import { InfoOutlined } from '@mui/icons-material'
-import returnEstiamtedEnergyUsage from '../../helpers/returnEsimatedEnergyUsage'
+import returnEstimatedEnergyUsage from '../../helpers/returnEstimatedEnergyUsage'
 import UsageCalculation from '../UsageCalculation/UsageCalculation'
 
 /*
@@ -44,7 +44,7 @@ const EnergyForm = () => {
     setEnergyUsage(e.target.value)
   }
   const setEstimatedEnergyUsage = () => {
-    const averageUsage = returnEstiamtedEnergyUsage(durationInMinutes)
+    const averageUsage = returnEstimatedEnergyUsage(durationInMinutes)
     setEnergyUsage(averageUsage)
   }
 
