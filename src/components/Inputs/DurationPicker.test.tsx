@@ -1,7 +1,7 @@
 import { render, screen } from '../../test/testUtils'
 import DurationPicker from './DurationPicker'
 
-describe('Test', () => {
+describe('Duration picker', () => {
   it('should render', () => {
     render(<DurationPicker value={15} />)
     // should have the text
