@@ -1,13 +1,10 @@
-import {
-  CssBaseline,
-  ThemeProvider,
-  Typography,
-  useMediaQuery,
-} from '@mui/material'
+import { Box, CssBaseline, ThemeProvider, useMediaQuery } from '@mui/material'
 
-import Navbar from './components/Navbar/Navbar'
 import { theme } from './helpers/theme'
 import { useMemo, useState } from 'react'
+
+import Navbar from './components/Navbar/Navbar'
+import EnergyForm from './components/EnergyForm/EnergyForm'
 
 function App() {
   const [prefersDarkMode, setDarkMode] = useState(
@@ -31,9 +28,10 @@ function App() {
           prefersDarkMode={prefersDarkMode}
           setDarkMode={handleSettingDarkMode}
         />
-        <Typography variant='body1' sx={{ flexGrow: 1, paddingX: 2 }}>
-          {prefersDarkMode ? 'Dark mode' : 'Light mode'}
-        </Typography>
+
+        <Box sx={{ margin: 2, marginTop: 4, maxWidth: '720px' }}>
+          <EnergyForm />
+        </Box>
       </ThemeProvider>
     </>
   )
