@@ -56,10 +56,9 @@ const EnergyForm = () => {
           information about your energy usage.
         </Typography>
       </Box>
-      Debug: {startDay} {startTime} {durationInMinutes}
       <Card sx={{ padding: 2 }}>
         <Typography variant='body1' component='p' sx={{ marginBottom: 2 }}>
-          Every workday has peak prices between 7:00 and 21:00. Please select a
+          Every workday has peak prices between 7:00 and 23:00. Please select a
           day and time so peak hours and considered in the calculation
         </Typography>
         <FormGroup className='form__container'>

@@ -17,7 +17,7 @@ const TimePicker = (props: TextFieldProps) => {
       </Grid>
       <Grid item>
         <Tooltip
-          title='Every workday has peak prices between 7:00 and 21:00. 
+          title='Every workday has peak prices between 7:00 and 23:00. 
         Please select a start time so peak hours and considered in the calculation'
         >
           <InfoOutlined />
