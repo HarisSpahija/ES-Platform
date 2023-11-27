@@ -1,5 +1,5 @@
 import { render, screen } from '../../test/testUtils'
-import { DurationPicker } from './DurationPicker'
+import DurationPicker from './DurationPicker'
 
 describe('Test', () => {
   it('should render', () => {
