@@ -39,7 +39,6 @@ const UsageCalculation = ({
   }, [startTime, startDay, durationInMinutes])
 
   const calcPeakPrice = useCallback(() => {
-    // your existing calcPeakPrice logic
     const kwhInPeak = (peakMinutes / durationInMinutes) * energyUsage
     const costInPeak = (kwhInPeak * kwhCostInCentsPeak) / 100
     setPeakPrice(costInPeak.toFixed(2))
