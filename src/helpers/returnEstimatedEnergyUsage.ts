@@ -1,6 +1,6 @@
 import { averageEnergyUsagePerMinute } from './constants'
 
-const returnEstiamtedEnergyUsage = (minutes: number) => {
+const returnEstimatedEnergyUsage = (minutes: number) => {
   // This function should probably fetch from some
   // Global API, but for now it will just
   // mock a random number based on the average
@@ -10,4 +10,4 @@ const returnEstiamtedEnergyUsage = (minutes: number) => {
   return minutes * averageEnergyUsagePerMinute
 }
 
-export default returnEstiamtedEnergyUsage
+export default returnEstimatedEnergyUsage
