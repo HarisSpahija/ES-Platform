@@ -15,7 +15,7 @@ interface IDurationPickerProps extends SelectProps {
   handleDurationStep?: (val: number) => void
 }
 
-const DurationPicker = (props: IDurationPickerProps) => {
+export function DurationPicker(props: IDurationPickerProps) {
   const { handleDurationStep, ...restProps } = props
 
   const findIndex = () => {
@@ -80,5 +80,3 @@ const DurationPicker = (props: IDurationPickerProps) => {
     </>
   )
 }
-
-export default DurationPicker
