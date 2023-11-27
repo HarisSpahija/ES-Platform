@@ -1,12 +1,8 @@
 import { Box, Typography } from '@mui/material'
 import calculatePeakMinutes from '../../helpers/calculatePeakMinutes'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { PieChart } from '@mui/x-charts/PieChart'
-import {
-  averageEnergyUsagePerMinute,
-  kwhCostInCents,
-  kwhCostInCentsPeak,
-} from '../../helpers/constants'
+import { kwhCostInCents, kwhCostInCentsPeak } from '../../helpers/constants'
 
 interface IUsageCalculationProps {
   startDay: number // 1 - 7 where 1 is Monday
@@ -29,7 +25,7 @@ const UsageCalculation = ({
   const pieParams = { height: 300 }
   const palette = ['#F47D20', '#e82c5f']
 
-  const calcAndSetPeakMinutes = () => {
+  const calcAndSetPeakMinutes = useCallback(() => {
     const startDateTime = new Date()
     startDateTime.setDate(
       startDateTime.getDate() + ((startDay + 7 - startDateTime.getDay()) % 7),
@@ -40,28 +36,35 @@ const UsageCalculation = ({
     const result = calculatePeakMinutes(startDateTime, durationInMinutes)
     setPeakMinutes(result.peakMinutes)
     setOffPeakMinutes(result.offPeakMinutes)
-  }
+  }, [startTime, startDay, durationInMinutes])
 
-  const calcPeakPrice = () => {
+  const calcPeakPrice = useCallback(() => {
+    // your existing calcPeakPrice logic
     const kwhInPeak = (peakMinutes / durationInMinutes) * energyUsage
     const costInPeak = (kwhInPeak * kwhCostInCentsPeak) / 100
     setPeakPrice(costInPeak.toFixed(2))
-  }
+  }, [peakMinutes, durationInMinutes, energyUsage])
 
-  const calcOffPeakPrice = () => {
+  const calcOffPeakPrice = useCallback(() => {
     const kwhInOffPeak = (offPeakMinutes / durationInMinutes) * energyUsage
     const costInOffPeak = (kwhInOffPeak * kwhCostInCents) / 100
     setOffPeakPrice(costInOffPeak.toFixed(2))
-  }
+  }, [offPeakMinutes, durationInMinutes, energyUsage])
 
   useEffect(() => {
     calcAndSetPeakMinutes()
-  }, [startDay, startTime, durationInMinutes])
+  }, [startDay, startTime, durationInMinutes, calcAndSetPeakMinutes])
 
   useEffect(() => {
     calcPeakPrice()
     calcOffPeakPrice()
-  }, [peakMinutes, offPeakMinutes, energyUsage])
+  }, [
+    peakMinutes,
+    offPeakMinutes,
+    energyUsage,
+    calcPeakPrice,
+    calcOffPeakPrice,
+  ])
 
   return (
     <Box sx={{ padding: 2 }}>

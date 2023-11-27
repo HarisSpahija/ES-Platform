@@ -26,13 +26,13 @@ const DurationPicker = (props: IDurationPickerProps) => {
   const optionIndex = findIndex()
 
   const handleDecreaseDuration = () => {
-    if (!props.handleDurationStep) return
-    props.handleDurationStep(durationOptions[optionIndex - 1].value)
+    if (!handleDurationStep) return
+    handleDurationStep(durationOptions[optionIndex - 1].value)
   }
 
   const handleIncreaseDuration = () => {
-    if (!props.handleDurationStep) return
-    props.handleDurationStep(durationOptions[optionIndex + 1].value)
+    if (!handleDurationStep) return
+    handleDurationStep(durationOptions[optionIndex + 1].value)
   }
 
   return (

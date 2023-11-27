@@ -34,9 +34,19 @@ module.exports = {
     'no-unused-vars': 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'prettier/prettier': 'error',
+    '@typescript-eslint/no-explicit-any': [
+      'error',
+      { ignoreRestArgs: true, fixToUnknown: true },
+    ],
     'no-console':
       process.env.NODE_ENV === 'production'
         ? ['error', { allow: ['error'] }]
         : 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        endOfLine: 'auto',
+      },
+    ],
   },
 }

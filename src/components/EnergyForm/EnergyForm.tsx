@@ -17,29 +17,26 @@ import { InfoOutlined } from '@mui/icons-material'
 import returnEstimatedEnergyUsage from '../../helpers/returnEstimatedEnergyUsage'
 import UsageCalculation from '../UsageCalculation/UsageCalculation'
 
-/*
-three input fields
-1. day
-2. start time
-3. duration
-4. energy usage estimate (number input)
-*/
-
 const EnergyForm = () => {
   const [startDay, setStartDay] = useState<number>(new Date().getDay())
   const [startTime, setStartTime] = useState<string>(getCurrentHHmm())
   const [durationInMinutes, setDuration] = useState<number>(60)
   const [energyUsage, setEnergyUsage] = useState<number>(0)
 
+  // TODO #12: Cleanup any usage
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const handleDayChange = (e: any) => {
     setStartDay(e.target.value)
   }
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const handleDurationChange = (e: any) => {
     setDuration(e.target.value)
   }
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const handleStartTimeChange = (e: any) => {
     setStartTime(e.target.value)
   }
+  /* eslint-disable @typescript-eslint/no-explicit-any */
   const handleEnergyUsageChange = (e: any) => {
     setEnergyUsage(e.target.value)
   }
