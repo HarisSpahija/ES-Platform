@@ -1,9 +1,11 @@
-export const kwhCostInCents = 180 // 0,18€
-export const kwhCostInCentsPeak = 200 // 0,20€
+export const kwhCostInCents = 18 // 0,18€
+export const kwhCostInCentsPeak = 20 // 0,20€
 export const startTimePeak = 7 // 7:00 AM
 export const endTimePeak = 23 // 23:00 PM
 export const meterInterValInMs = 1000 * 60 * 15 // 1 hour
-export const daysThatHasPeak = [0, 1, 2, 3, 4] // Monday to Friday
+export const daysThatHasPeak = [1, 2, 3, 4, 5] // Monday to Friday
+
+export const averageEnergyUsagePerMinute = 0.005517503805175
 
 export type durationOptionType = { value: number; label: string }
 export const durationOptions: durationOptionType[] = [

@@ -16,6 +16,8 @@ interface IDurationPickerProps extends SelectProps {
 }
 
 const DurationPicker = (props: IDurationPickerProps) => {
+  const { handleDurationStep, ...restProps } = props
+
   const findIndex = () => {
     return durationOptions.findIndex((element) => {
       return element.value === props.value
@@ -52,7 +54,7 @@ const DurationPicker = (props: IDurationPickerProps) => {
           <FormControl fullWidth>
             <InputLabel id='duration-picker'>Pick a duration</InputLabel>
             <Select
-              {...props}
+              {...restProps}
               labelId='duration-picker'
               label='Pick a duration'
               fullWidth

@@ -15,6 +15,7 @@ import '../../styles/form.scss'
 import getCurrentHHmm from '../../helpers/getCurrentHHmm'
 import { InfoOutlined } from '@mui/icons-material'
 import returnEstiamtedEnergyUsage from '../../helpers/returnEsimatedEnergyUsage'
+import UsageCalculation from '../UsageCalculation/UsageCalculation'
 
 /*
 three input fields
@@ -102,6 +103,16 @@ const EnergyForm = () => {
           </Grid>
         </FormGroup>
       </Card>
+      {startDay && startTime && durationInMinutes && energyUsage > 0 && (
+        <Card sx={{ marginTop: 3 }}>
+          <UsageCalculation
+            startDay={startDay}
+            startTime={startTime}
+            durationInMinutes={durationInMinutes}
+            energyUsage={energyUsage}
+          ></UsageCalculation>
+        </Card>
+      )}
     </>
   )
 }
