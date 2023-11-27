@@ -13,6 +13,7 @@ const TimePicker = (props: TextFieldProps) => {
           type='time'
           label='Pick a start time'
           fullWidth
+          role='time-picker'
         />
       </Grid>
       <Grid item>
